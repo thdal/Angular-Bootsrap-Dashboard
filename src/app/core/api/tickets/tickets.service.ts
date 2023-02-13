@@ -1,0 +1,14 @@
+import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { CrudService } from '../crud.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TicketsService extends CrudService<any, string> {
+
+  constructor(protected httpClient: HttpClient) { 
+    super(httpClient, `${environment.apiUrl}/api/tickets`);
+  }
+}
